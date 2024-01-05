@@ -37,13 +37,13 @@
         },
         {
           "quantity": 4,
-          "name": "Pollo a la Brasa",
-          "ingredients": ["Pollo entero", "Adobo especial", "Hierbas y especias"]
+          "name": "Alitas de Pollo",
+          "ingredients": ["Alitas de pollo", "Salsa picante/barbacoa/ajo parmesano"]
         },
         {
           "quantity": 5,
-          "name": "Pollo a la Brasa",
-          "ingredients": ["Pollo entero", "Adobo especial", "Hierbas y especias"]
+          "name": "Arroz con Pollo",
+          "ingredients": ["Arroz", "Pollo", "Verduras", "Especias"]
         }
       ],
       "table": 4,
@@ -56,8 +56,8 @@
       "plate": [
         {
           "quantity": 2,
-          "name": "Pollo a la Brasa",
-          "ingredients": ["Pollo entero", "Adobo especial", "Hierbas y especias"]
+          "name": "Papas Fritas",
+          "ingredients": ["Papas", "Aceite", "Sal"]
         }
       ],
       "table": 4,

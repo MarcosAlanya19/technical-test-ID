@@ -4,8 +4,8 @@ import React from 'react';
 import { config } from '@/config';
 import { useAppSelector } from '@/hooks/store';
 import { EStatus, IOrderWithId } from '@/interface/order.interface';
-import { BtnContainer, BtnStyled, CardsContainer, HomeContainer, MessageContainer, StyledComponent, StyledTab, StyledTabList } from './home.styled';
 import Card from './components/Card';
+import { BtnContainer, BtnStyled, CardsContainer, HomeContainer, MessageContainer, StyledComponent, StyledTab, StyledTabList } from './home.styled';
 
 const Home = () => {
   const ordersFromStore = useAppSelector<IOrderWithId[]>((state) => state.orders);

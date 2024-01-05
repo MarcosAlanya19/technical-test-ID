@@ -15,7 +15,6 @@ const ActionButtons: React.FC<Props> = (props) => {
       customClass: {
         confirmButton: 'styled-confirm-button',
         cancelButton: 'styled-cancel-button',
-        icon: 'styled-icon-alert'
       },
       buttonsStyling: false,
     });
@@ -23,7 +22,6 @@ const ActionButtons: React.FC<Props> = (props) => {
     const result = await swalWithBootstrapButtons.fire({
       title,
       text,
-      // icon: 'warning',
       showCancelButton: true,
       confirmButtonText,
       cancelButtonText,
@@ -57,7 +55,7 @@ const ActionButtons: React.FC<Props> = (props) => {
       Swal.fire({
         title: 'Actualizado',
         text: `El estado de la orden ha sido cambiado a ${newStatus}.`,
-        icon: 'success',
+
       });
     }
   };

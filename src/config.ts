@@ -6,5 +6,8 @@ export const config = {
     ORDER: 'localStorage_order',
     PERSIST: 'storage'
   },
-  ROUTES: {},
+  ROUTES: {
+    HOME: '/',
+    ADD_ORDER: '/nueva-orden'
+  },
 };

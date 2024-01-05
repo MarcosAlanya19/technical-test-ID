@@ -1,102 +1,12 @@
 import { useOrderActions } from '@/hooks/useOrderActions';
 import { EStatus, IOrder } from '@/interface/order.interface';
 import React from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import styled from 'styled-components';
+import { useNavigate } from 'react-router-dom';
 import Swal from 'sweetalert2';
 import * as data from '../../data/data.json';
-import { IPlate } from '../../interface/order.interface';
-
-const Form = styled.div`
-  display: flex;
-  margin: 5% auto;
-  height: 100%;
-  justify-content: center;
-  align-items: center;
-
-  button {
-    background-color: #4caf50;
-    color: white;
-    padding: 10px;
-    border: none;
-    cursor: pointer;
-    width: 100%;
-  }
-
-  label {
-    display: block;
-  }
-`;
-
-const FormContainer = styled.form`
-  display: flex;
-  flex-direction: column;
-  padding: 2rem;
-  margin: 0 2rem;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  width: 20rem;
-`;
-
-const PlateContainer = styled.div`
-  display: flex;
-  gap: 1rem;
-  justify-content: start;
-  align-items: center;
-  margin-bottom: 0.625rem;
-`;
-
-const FormGroup = styled.div`
-  margin-bottom: 16px;
-`;
-
-const Label = styled.label`
-  display: block;
-  margin-bottom: 8px;
-  font-weight: bold;
-`;
-
-const Input = styled.input`
-  width: 100%;
-  padding: 0.5rem 0 0.5rem 0.5rem;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-`;
-
-const TextArea = styled.textarea`
-  width: 100%;
-  padding: 0.5rem 0 0.5rem 0.5rem;
-  border: 0.0625rem solid #ccc;
-  border-radius: 0.25rem;
-  resize: none;
-`;
-
-const LinkStyled = styled(Link)`
-  background-color: #f44336;
-  color: white;
-  padding: 10px 0;
-  border: none;
-  cursor: pointer;
-  width: 100%;
-  text-align: center;
-  text-decoration: none;
-`;
-
-const BtnGroup = styled.div`
-  display: grid;
-  gap: 1rem;
-`;
-
-const ErrorLabel = styled.label`
-  background-color: red;
-  color: white;
-  font-size: 0.875rem;
-  font-weight: bold;
-  margin-bottom: 0.25rem;
-  text-align: center;
-  padding: 0.25rem 0;
-`;
-
+import { createPlateObject, validateComment, validateSelectedPlates, validateTable } from './helper.addOrder';
+import { BtnGroup, ErrorLabel, Form, FormContainer, FormGroup, Input, Label, LinkStyled, PlateContainer, TextArea } from './styled.addOrder';
+import { config } from '@/config';
 interface ICheckDate {
   plateId: number;
   quantity: number;
@@ -106,23 +16,20 @@ const AddOrder = () => {
   const [selectedPlates, setSelectedPlates] = React.useState<ICheckDate[]>([]);
   const [formErrors, setFormErrors] = React.useState({});
   const navigate = useNavigate();
-
   const { addOrder } = useOrderActions();
 
-  const handlePlateCheckboxChange = (plateId) => {
+  const handlePlateCheckboxChange = (plateId: number) => {
     setSelectedPlates((prevSelected) => {
       const existingIndex = prevSelected.findIndex((plate) => plate.plateId === plateId);
+      const updatedSelected = existingIndex !== -1
+        ? prevSelected.filter((plate) => plate.plateId !== plateId)
+        : [...prevSelected, { plateId, quantity: 1 }];
 
-      if (existingIndex !== -1) {
-        const updatedSelected = [...prevSelected];
-        updatedSelected.splice(existingIndex, 1);
-        return updatedSelected;
-      } else {
-        return [...prevSelected, { plateId, quantity: 1 }];
-      }
+      return updatedSelected;
     });
   };
-  const handleQuantityChange = (plateId, newQuantity) => {
+
+  const handleQuantityChange = (plateId: number, newQuantity: number) => {
     setSelectedPlates((prevSelected) => {
       const updatedSelected = [...prevSelected];
       const existingIndex = prevSelected.findIndex((plate) => plate.plateId === plateId);
@@ -138,34 +45,18 @@ const AddOrder = () => {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
+    const formData = new FormData(e.currentTarget);
+
     const selectedPlatesData = selectedPlates.map((plate) => ({
       plateId: plate.plateId,
       quantity: plate.quantity,
     }));
 
-    const newFormErrors = {};
-
-    if (selectedPlates.length === 0) {
-      newFormErrors['plates'] = 'Selecciona al menos un plato';
-    }
-    for (const plate of selectedPlates) {
-      if (plate.quantity <= 0) {
-        newFormErrors[`quantity-${plate.plateId}`] = `La cantidad de ${plate.plateId} debe ser mayor que cero`;
-      }
-    }
-
-    const formData = new FormData(e.currentTarget);
-    const table = parseInt(formData.get('table')?.toString().trim() ?? '');
-
-    if (!table) {
-      newFormErrors['table'] = 'Ingresa un número de mesa válido';
-    }
-
-    const comment = formData.get('comment')?.toString().trim() as string;
-
-    if (!comment) {
-      newFormErrors['comment'] = 'Ingresa un comentario';
-    }
+    const newFormErrors = {
+      ...validateSelectedPlates(selectedPlates),
+      ...validateTable(parseInt(formData.get('table')?.toString().trim() ?? '')),
+      ...validateComment(formData.get('comment')?.toString().trim() as string),
+    };
 
     setFormErrors(newFormErrors);
 
@@ -173,18 +64,14 @@ const AddOrder = () => {
       return;
     }
 
-    const plates = selectedPlatesData.map<IPlate>((plate) => ({
-      quantity: plate.quantity,
-      name: data.platos.find((plato) => plato.id === plate.plateId)?.nombre as string,
-      ingredients: data.platos.find((plato) => plato.id === plate.plateId)?.ingredientes.map((data) => data) || [],
-    }));
+    const plates = createPlateObject(selectedPlatesData, data);
 
     const orderObject: IOrder = {
       plate: [...plates],
       status: EStatus.PENDIENTE,
-      table,
+      table: parseInt(formData.get('table')?.toString().trim() ?? ''),
       waiter: 'Marcos Alanya',
-      comment,
+      comment: formData.get('comment')?.toString().trim() as string,
     };
 
     addOrder(orderObject);
@@ -194,19 +81,11 @@ const AddOrder = () => {
       text: 'La orden se creó de manera exitosa',
     }).then(() => {
       if (Object.keys(newFormErrors).length === 0) {
-        navigate('/');
-
+        navigate(config.ROUTES.HOME);
         e.currentTarget.reset();
       }
     });
-
-    if (Object.keys(newFormErrors).length === 0) {
-      navigate('/');
-
-      e.currentTarget.reset();
-    }
   };
-
   return (
     <Form>
       <FormContainer onSubmit={handleSubmit}>
@@ -253,7 +132,7 @@ const AddOrder = () => {
         </FormGroup>
         <BtnGroup>
           <button type='submit'>Enviar</button>
-          <LinkStyled to={'/'}>Volver al inicio</LinkStyled>
+          <LinkStyled to={config.ROUTES.HOME}>Volver al inicio</LinkStyled>
         </BtnGroup>
       </FormContainer>
     </Form>

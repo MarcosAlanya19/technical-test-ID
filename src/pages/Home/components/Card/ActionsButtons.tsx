@@ -1,7 +1,7 @@
 import { useOrderActions } from '@/hooks/useOrderActions';
 import { EStatus, IOrderWithId } from '@/interface/order.interface';
 import Swal from 'sweetalert2';
-import { ActionButton, ButtonsContainer } from '../styled.component';
+import { ActionButton, ButtonsContainer } from '../styled.card';
 
 interface Props {
   data: IOrderWithId;

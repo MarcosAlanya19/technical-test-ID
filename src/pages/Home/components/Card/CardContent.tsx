@@ -3,7 +3,7 @@ import React from 'react';
 import { RiArrowDownSLine } from 'react-icons/ri';
 
 import { IOrderWithId } from '@/interface/order.interface';
-import { CardName, CardNumber, CardParragraft, CardTitle, ContainerParragraft, ContentContainer, SeparatorLine, StatusSpan } from '../styled.component';
+import { CardName, CardNumber, CardParragraft, CardTitle, ContainerParragraft, ContentContainer, SeparatorLine, StatusSpan } from '../styled.card';
 import ActionButtons from './ActionsButtons';
 
 interface Props {

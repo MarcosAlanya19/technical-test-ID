@@ -1,4 +1,4 @@
-import { HeaderContainer } from '../styled.component';
+import { HeaderContainer } from '../styled.card';
 
 interface Props {
   tableNumber: number;

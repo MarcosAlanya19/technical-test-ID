@@ -28,7 +28,7 @@ const Home = () => {
   return (
     <HomeContainer>
       <BtnContainer>
-        <BtnStyled to={'/nueva-orden'}>AGREGAR ORDEN</BtnStyled>
+        <BtnStyled to={config.ROUTES.ADD_ORDER}>AGREGAR ORDEN</BtnStyled>
       </BtnContainer>
 
       <StyledComponent>

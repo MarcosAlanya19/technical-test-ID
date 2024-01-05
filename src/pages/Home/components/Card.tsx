@@ -3,7 +3,7 @@ import React from 'react';
 import { IOrderWithId } from '@/interface/order.interface';
 import CardContent from './Card/CardContent';
 import CardHeader from './Card/CardHeader';
-import { CardContainer } from './styled.component';
+import { CardContainer } from './styled.card';
 
 interface Props {
   data: IOrderWithId;

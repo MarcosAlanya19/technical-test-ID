@@ -179,7 +179,6 @@ const AddOrder = () => {
     }));
 
     const orderObject: IOrder = {
-      // id: uuidv4(),
       plate: [...plates],
       status: EStatus.PENDIENTE,
       table,
@@ -236,7 +235,7 @@ const AddOrder = () => {
         </FormGroup>
         <FormGroup>
           <Label htmlFor='table'>Número de mesa:</Label>
-          <Input type='text' name='table' id='table' />
+          <Input type='number' name='table' id='table' />
         </FormGroup>
         <FormGroup>
           <Label htmlFor='comment'>Comentario:</Label>

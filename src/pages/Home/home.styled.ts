@@ -39,13 +39,14 @@ export const CardsContainer = styled.div`
   align-items: baseline;
   grid-gap: 2rem;
 
-  @media screen and (max-width: 767px) {
+
+  /* @media screen and (max-width: 767px) {
     grid-template-columns: 1fr;
   }
 
   @media screen and (min-width: 768px) and (max-width: 1023px) {
-    grid-template-columns: repeat(2, 1fr); /* Dos columnas en tablet */
-  }
+    grid-template-columns: repeat(2, 1fr);
+  } */
 `;
 
 export const MessageContainer = styled.div`

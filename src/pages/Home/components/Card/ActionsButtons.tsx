@@ -13,8 +13,8 @@ const ActionButtons: React.FC<Props> = (props) => {
   const showConfirmationDialog = async (title: string, text: string, confirmButtonText: string, cancelButtonText: string) => {
     const swalWithBootstrapButtons = Swal.mixin({
       customClass: {
-        confirmButton: 'styled-confirm-button',
-        cancelButton: 'styled-cancel-button',
+        confirmButton: 'styled-cancel-button',
+        cancelButton: 'styled-confirm-button',
       },
       buttonsStyling: false,
     });
@@ -40,7 +40,6 @@ const ActionButtons: React.FC<Props> = (props) => {
       Swal.fire({
         title: 'Eliminado',
         text: 'Su orden ha sido eliminada.',
-        icon: 'success',
       });
     }
   };
@@ -55,7 +54,6 @@ const ActionButtons: React.FC<Props> = (props) => {
       Swal.fire({
         title: 'Actualizado',
         text: `El estado de la orden ha sido cambiado a ${newStatus}.`,
-
       });
     }
   };

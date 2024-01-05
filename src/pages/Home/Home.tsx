@@ -43,12 +43,12 @@ const Home = () => {
           <Tab.Panels>
             {orderCategories.map((category) => (
               <Tab.Panel key={category}>
-                {filteredOrders(category).map((order) => (
-                  <CardsContainer>
+                <CardsContainer>
+                  {filteredOrders(category).map((order) => (
                     <Card key={order.id} data={order} />
-                  </CardsContainer>
-                ))}
-                {filteredOrders(category).length === 0 && <MessageContainer>No hay órdenes en esta categoría</MessageContainer>}
+                  ))}
+                  {filteredOrders(category).length === 0 && <MessageContainer>No hay órdenes en esta categoría</MessageContainer>}
+                </CardsContainer>
               </Tab.Panel>
             ))}
           </Tab.Panels>

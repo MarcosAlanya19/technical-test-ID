@@ -49,7 +49,7 @@
       "table": 4,
       "status": "Pendiente",
       "waiter": "Marcos Alanya",
-      "comment": "good"
+      "comment": "Las alitas sin mucha salsa"
     },
     {
       "id": "2",
@@ -63,7 +63,53 @@
       "table": 4,
       "status": "Pendiente",
       "waiter": "Marcos Alanya",
-      "comment": ""
+      "comment": "No colocar sal"
+    },
+    {
+      "id": "3",
+      "plate": [
+        {
+          "quantity": 2,
+          "name": "Papas Fritas",
+          "ingredients": ["Papas", "Aceite", "Sal"]
+        }
+      ],
+      "table": 7,
+      "status": "En proceso",
+      "waiter": "Marcos Alanya"
+    },
+    {
+      "id": "4",
+      "plate": [
+        {
+          "quantity": 1,
+          "name": "Pollo a la Brasa",
+          "ingredients": ["Pollo entero", "Adobo especial", "Hierbas y especias"]
+        },
+        {
+          "quantity": 2,
+          "name": "Alitas de Pollo",
+          "ingredients": ["Alitas de pollo", "Salsa picante/barbacoa/ajo parmesano"]
+        },
+        {
+          "quantity": 3,
+          "name": "Ensalada de Pollo",
+          "ingredients": ["Pollo a la parrilla", "Lechuga", "Tomate", "Aderezo"]
+        },
+        {
+          "quantity": 4,
+          "name": "Papas Fritas",
+          "ingredients": ["Papas", "Aceite", "Sal"]
+        },
+        {
+          "quantity": 5,
+          "name": "Arroz con Pollo",
+          "ingredients": ["Arroz", "Pollo", "Verduras", "Especias"]
+        }
+      ],
+      "table": 10,
+      "status": "Completado",
+      "waiter": "Marcos Alanya"
     }
   ]
 }

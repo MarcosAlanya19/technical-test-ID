@@ -20,7 +20,7 @@ const Card: React.FC<Props> = ({ data }) => {
 
   return (
     <CardContainer>
-      <CardHeader tableNumber={5} />
+      <CardHeader tableNumber={data.table} />
       <CardContent data={data} isOpenArray={isOpenArray} togglePanel={togglePanel} />
     </CardContainer>
   );

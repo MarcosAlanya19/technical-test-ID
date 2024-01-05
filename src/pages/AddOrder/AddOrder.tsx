@@ -3,6 +3,7 @@ import { EStatus, IOrder } from '@/interface/order.interface';
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
+import Swal from 'sweetalert2';
 import * as data from '../../data/data.json';
 import { IPlate } from '../../interface/order.interface';
 
@@ -104,7 +105,7 @@ interface ICheckDate {
 const AddOrder = () => {
   const [selectedPlates, setSelectedPlates] = React.useState<ICheckDate[]>([]);
   const [formErrors, setFormErrors] = React.useState({});
-  const history = useNavigate();
+  const navigate = useNavigate();
 
   const { addOrder } = useOrderActions();
 
@@ -188,11 +189,20 @@ const AddOrder = () => {
 
     addOrder(orderObject);
 
-    if (Object.keys(newFormErrors).length === 0) {
-      // Redirigir a '/'
-      history('/');
+    Swal.fire({
+      title: 'Éxito',
+      text: 'La orden se creó de manera exitosa',
+    }).then(() => {
+      if (Object.keys(newFormErrors).length === 0) {
+        navigate('/');
 
-      // Resetear el formulario
+        e.currentTarget.reset();
+      }
+    });
+
+    if (Object.keys(newFormErrors).length === 0) {
+      navigate('/');
+
       e.currentTarget.reset();
     }
   };

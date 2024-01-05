@@ -1,21 +1,9 @@
-import { IOrderWithId } from '@/interface/order.interface';
 import React from 'react';
 
-import styled from 'styled-components';
+import { IOrderWithId } from '@/interface/order.interface';
 import CardContent from './Card/CardContent';
 import CardHeader from './Card/CardHeader';
-
-const CardContainer = styled.div`
-  background-color: #fff;
-  border: 0.0625rem solid #ddd;
-  border-radius: 0.5rem;
-  box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease-in-out;
-
-  &:hover {
-    transform: translateY(-0.3125rem);
-  }
-`;
+import { CardContainer } from './styled.component';
 
 interface Props {
   data: IOrderWithId;

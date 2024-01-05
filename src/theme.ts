@@ -1,7 +1,7 @@
 export const theme = {
   colors: {
-    primary: '#000',
-    primary_hover: '#d24d6c',
-    secondary: '#00ff00',
+    primary: '#4c1e1b',
+    primary_hover: '#8f2517',
+    secondary: '#4c1e1b',
   },
 };

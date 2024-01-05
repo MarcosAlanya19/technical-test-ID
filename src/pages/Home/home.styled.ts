@@ -23,6 +23,11 @@ export const BtnStyled = styled(Link)`
   margin-right: 2rem;
   transition: background-color 0.3s ease;
 
+  @media screen and (max-width: 767px) {
+    margin-right: 0rem;
+    padding: 0.625rem 1rem;
+  }
+
   &:hover {
     background-color: ${(props) => props.theme.colors.primary_hover};
   }
@@ -33,6 +38,14 @@ export const CardsContainer = styled.div`
   grid-template-columns: repeat(4, 1fr);
   align-items: baseline;
   grid-gap: 2rem;
+
+  @media screen and (max-width: 767px) {
+    grid-template-columns: 1fr;
+  }
+
+  @media screen and (min-width: 768px) and (max-width: 1023px) {
+    grid-template-columns: repeat(2, 1fr); /* Dos columnas en tablet */
+  }
 `;
 
 export const MessageContainer = styled.div`
@@ -41,18 +54,15 @@ export const MessageContainer = styled.div`
   color: #333;
   text-align: center;
   margin-top: 10px;
+  font-weight: 500;
 `;
 
 export const StyledComponent = styled.div`
   width: 100%;
-  padding-left: 0.5rem;
-  padding-right: 0.5rem;
-  padding-top: 2rem;
-  padding-bottom: 4rem;
+  padding: 2rem 0.5rem;
 
   @media screen and (min-width: 640px) {
-    padding-left: 0;
-    padding-right: 0;
+    padding: 2rem 0rem;
   }
 `;
 
@@ -63,6 +73,10 @@ export const StyledTabList = styled(Tab.List)`
   background-color: rgba(13, 42, 87, 0.2);
   padding: 0.25rem;
   margin-bottom: 1rem;
+
+  @media screen and (min-width: 640px) {
+    gap: 0;
+  }
 `;
 export const StyledTab = styled(Tab)<{ selected: boolean }>`
   width: 100%;
@@ -79,11 +93,11 @@ export const StyledTab = styled(Tab)<{ selected: boolean }>`
     props.selected
       ? css`
           background-color: white;
-          color: #1e40af;
+          color: #000;
           box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         `
       : css`
-          color: #a0aec0;
+          color: #00000060;
           &:hover {
             background-color: rgba(255, 255, 255, 0.12);
             color: white;

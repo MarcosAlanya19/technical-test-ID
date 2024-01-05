@@ -4,7 +4,7 @@ import React from 'react';
 import { config } from '@/config';
 import { useAppSelector } from '@/hooks/store';
 import { EStatus, IOrderWithId } from '@/interface/order.interface';
-import { BtnContainer, BtnStyled, CardsContainer, HomeContainer, MessageContainer, StyledComponent, StyledTab, StyledTabList } from './styled.component';
+import { BtnContainer, BtnStyled, CardsContainer, HomeContainer, MessageContainer, StyledComponent, StyledTab, StyledTabList } from './home.styled';
 import Card from './components/Card';
 
 const Home = () => {
@@ -43,12 +43,12 @@ const Home = () => {
           <Tab.Panels>
             {orderCategories.map((category) => (
               <Tab.Panel key={category}>
-                <CardsContainer>
-                  {filteredOrders(category).map((order) => (
+                {filteredOrders(category).map((order) => (
+                  <CardsContainer>
                     <Card key={order.id} data={order} />
-                  ))}
-                  {filteredOrders(category).length === 0 && <MessageContainer>No hay órdenes en esta categoría</MessageContainer>}
-                </CardsContainer>
+                  </CardsContainer>
+                ))}
+                {filteredOrders(category).length === 0 && <MessageContainer>No hay órdenes en esta categoría</MessageContainer>}
               </Tab.Panel>
             ))}
           </Tab.Panels>

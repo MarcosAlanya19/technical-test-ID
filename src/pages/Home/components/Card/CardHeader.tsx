@@ -1,20 +1,9 @@
-import styled from 'styled-components';
-
-const HeaderContainer = styled.div`
-  background-color: #000;
-  color: #fff;
-  text-align: center;
-  padding: 1rem;
-  font-weight: 700;
-  font-size: 1.4rem;
-`;
+import { HeaderContainer } from '../styled.component';
 
 interface Props {
-  tableNumber: number
+  tableNumber: number;
 }
 
-const CardHeader: React.FC<Props> = ({ tableNumber }) => (
-  <HeaderContainer>MESA: {tableNumber}</HeaderContainer>
-);
+const CardHeader: React.FC<Props> = ({ tableNumber }) => <HeaderContainer>MESA: Num {tableNumber}</HeaderContainer>;
 
 export default CardHeader;

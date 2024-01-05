@@ -19,6 +19,7 @@ export const CardContainer = styled.div`
 export const ButtonsContainer = styled.div`
   display: flex;
   justify-content: space-between;
+  width: 100%;
   gap: 1rem;
   margin-top: 0.625rem;
   width: 100%;
@@ -38,6 +39,7 @@ export const getActionButtonStyles = (name: ReactNode) => {
 
 export const ActionButton = styled.button`
   padding: 0.5rem 1rem;
+  width: 100%;
   color: #fff;
   font-weight: 500;
   text-transform: uppercase;

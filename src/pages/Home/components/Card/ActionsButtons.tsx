@@ -65,9 +65,9 @@ const ActionButtons: React.FC<Props> = (props) => {
       {isOrderNotCompleted && (
         <>
           <ActionButton onClick={handleStatus}>{props.data.status === EStatus.PROCESO ? EStatus.COMPLETADO : EStatus.PROCESO}</ActionButton>
-          <ActionButton onClick={handleDelete}>CANCELAR</ActionButton>
         </>
       )}
+      <ActionButton onClick={handleDelete}>Eliminar</ActionButton>
     </ButtonsContainer>
   );
 };

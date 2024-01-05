@@ -1,6 +1,6 @@
 import React from 'react';
 import * as data from '../../data/data.json';
-import { IOrderWithId } from '@/interface/order.interface';
+import { EStatus, IOrderWithId } from '@/interface/order.interface';
 import { IPlate } from '../../interface/order.interface';
 import { v4 as uuidv4 } from 'uuid';
 import { useOrderActions } from '@/hooks/useOrderActions';
@@ -63,7 +63,7 @@ const AddOrder = () => {
     const orderObject: IOrderWithId = {
       id: uuidv4(),
       plate: [...test],
-      status: 'En proceso',
+      status: EStatus.PENDIENTE,
       table: 54,
       waiter: 'Marcos Alanya',
       comment,

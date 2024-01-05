@@ -1,7 +1,7 @@
 export enum EStatus {
+  PENDIENTE= 'Pendiente',
   PROCESO= 'En proceso',
   COMPLETADO= 'Completado',
-  PENDIENTE= 'Pendiente'
 }
 
 export interface IPlate {

@@ -1,30 +1,38 @@
-# React + TypeScript + Vite
+<h1 align="center">Welcome to KITCHEN DISPLAY SYSTEM 👋</h1>
+<p>
+  <img alt="Version" src="https://img.shields.io/badge/version-0.0.0-blue.svg?cacheSeconds=2592000" />
+</p>
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+> Propuesta de proyecto CRUD para la gestión de comidas: un sistema que permita añadir platos, visualizarlos instantáneamente por el chef y llevar a cabo su preparación en tiempo real.
 
-Currently, two official plugins are available:
+![Alt text](image.png)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### ✨ [Demo](https://test-id-iwcw.onrender.com/)
 
-## Expanding the ESLint configuration
+## Install
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
+```sh
+yarn install
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+### Objetivo:
+
+Desarrollar una aplicación web de Kitchen Display System (KDS) utilizando React.js con Styled Components, React Hooks, Redux y TypeScript.
+
+### Descripcion:
+![Alt text](image-1.png)
+El aplicativo tiene 3 filtros, donde se puede ver los PENDIENTES, EN PROCESO y COMPLETADO, asimismo cada pedido, muestra los ingredientes que lleva, asimismo la cantidad, el estatus y un comentario a considerar por el chef.
+
+![Alt text](image-2.png)
+Por otro lado, hay un formulario para agregar una nueva orden, con sus respectivas validaciones
+
+
+
+
+## Author
+
+👤 **Marcos Alanya**
+
+* Website: https://marcos-alanya-portafolio.vercel.app/
+* Github: [@MarcosAlanya19](https://github.com/MarcosAlanya19)
+* LinkedIn: [@marcosAlanya19](https://linkedin.com/in/marcosAlanya19)

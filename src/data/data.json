@@ -1,0 +1,69 @@
+{
+  "platos": [
+    {
+      "id": 1,
+      "nombre": "Pollo a la Brasa",
+      "ingredientes": ["Pollo entero", "Adobo especial", "Hierbas y especias"]
+    },
+    {
+      "id": 2,
+      "nombre": "Alitas de Pollo",
+      "ingredientes": ["Alitas de pollo", "Salsa picante/barbacoa/ajo parmesano"]
+    },
+    {
+      "id": 3,
+      "nombre": "Ensalada de Pollo",
+      "ingredientes": ["Pollo a la parrilla", "Lechuga", "Tomate", "Aderezo"]
+    },
+    {
+      "id": 4,
+      "nombre": "Papas Fritas",
+      "ingredientes": ["Papas", "Aceite", "Sal"]
+    },
+    {
+      "id": 5,
+      "nombre": "Arroz con Pollo",
+      "ingredientes": ["Arroz", "Pollo", "Verduras", "Especias"]
+    }
+  ],
+  "DEFAULT_STATE": [
+    {
+      "id": "1",
+      "plate": [
+        {
+          "quantity": 2,
+          "name": "Pollo a la Brasa",
+          "ingredients": ["Pollo entero", "Adobo especial", "Hierbas y especias"]
+        },
+        {
+          "quantity": 4,
+          "name": "Pollo a la Brasa",
+          "ingredients": ["Pollo entero", "Adobo especial", "Hierbas y especias"]
+        },
+        {
+          "quantity": 5,
+          "name": "Pollo a la Brasa",
+          "ingredients": ["Pollo entero", "Adobo especial", "Hierbas y especias"]
+        }
+      ],
+      "table": 4,
+      "status": "Pendiente",
+      "waiter": "Marcos Alanya",
+      "comment": "good"
+    },
+    {
+      "id": "2",
+      "plate": [
+        {
+          "quantity": 2,
+          "name": "Pollo a la Brasa",
+          "ingredients": ["Pollo entero", "Adobo especial", "Hierbas y especias"]
+        }
+      ],
+      "table": 4,
+      "status": "Pendiente",
+      "waiter": "Marcos Alanya",
+      "comment": ""
+    }
+  ]
+}
